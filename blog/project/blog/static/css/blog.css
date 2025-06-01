@@ -1,0 +1,146 @@
+.page-header {
+    background-color: #C25100;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+    border-bottom: 4px solid #A64000;
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: #ffffff;
+    font-size: 36pt;
+    text-decoration: none;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.content {
+    margin-left: 40px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Lobster', cursive;
+    color: #333333;
+}
+
+.date {
+    color: #828282;
+    font-size: 12pt;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+form select {
+    width: auto;
+    max-width: 250px;
+    font-size: 14px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+form select:hover {
+    border-color: #C25100;
+}
+
+.post {
+    margin-bottom: 70px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.post h2 a, .post h1 a:visited {
+    color: #000000;
+    text-decoration: none;
+}
+
+.post h2 a:hover, .post h1 a:hover {
+    color: #C25100;
+    text-decoration: underline;
+}
+
+.post-views, .post-likes {
+    font-size: 12px;
+    color: #666666;
+    margin-top: 10px;
+    display: inline-block;
+    background-color: #f1f1f1;
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.post-likes button {
+    background-color: #C25100;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.post-likes button:hover {
+    background-color: #A64000;
+}
+
+.comment-form textarea, .comment-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.comment-form button {
+    background-color: #C25100;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.comment-form button:hover {
+    background-color: #A64000;
+}
+
+.comment-list {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.comment-list li {
+    margin-bottom: 15px;
+}
+
+.comment-list strong {
+    color: #333;
+    font-size: 14px;
+}
+
+.comment-list small {
+    color: #828282;
+    font-size: 11px;
+    font-style: italic;
+}
+
+.top-menu, .top-menu:hover, .top-menu:visited {
+    color: #ffffff;
+    float: right;
+    font-size: 26pt;
+    margin-right: 20px;
+}
+
+button {
+    transition: background-color 0.3s ease;
+}

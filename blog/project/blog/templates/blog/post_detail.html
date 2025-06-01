@@ -1,0 +1,68 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="post">
+        {% if post.published_date %}
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+        {% else %}
+            <form method="POST" action="{% url 'post_publish' pk=post.pk %}" class="post-form">{% csrf_token %}
+                <button type="submit" class="post btn btn-secondary" name="publish">Publish</button>
+            </form>
+        {% endif %}
+        {% if user.is_authenticated %}
+            {% if perms.blog.post_edit %}
+                <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+            {% endif %}
+        {% endif %}
+        <h1>{{ post.title }}</h1>
+        <p>
+            <strong>Categories:</strong>
+            {% for category in post.categories.all %}
+                {{ category.name }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </p>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+
+    <p>Number of views: {{ post.views }}</p>
+
+    <form method="post" action="{% url 'like_post' post.pk %}">
+        {% csrf_token %}
+        {% if user.id in liked_users %}
+            <button type="submit" class="btn btn-danger">Delete like</button>
+        {% else %}
+            <button type="submit" class="btn btn-primary">Like</button>
+        {% endif %}
+    </form>
+    
+    <p>Likes: {{ post.likes.count }}</p>
+
+    <h3>Comments</h3>
+    <ul>
+        {% for comment in comments %}
+            <li>
+                <strong>{{ comment.author.username }}</strong> ({{ comment.author.email }}):
+                <p>{{ comment.text }}</p>
+                <small>Created: {{ comment.created_date }}</small>
+            </li>
+        {% empty %}
+            <p>No comments yet.</p>
+        {% endfor %}
+    </ul>
+    <h3>Add a Comment</h3>
+    {% if user.is_authenticated %}
+        {% if perms.blog.add_comment %}
+            <form method="POST" action="{% url 'add_comment' pk=post.pk %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Post Comment</button>
+            </form>
+        {% else %}
+            <p>No permission!</p>
+        {% endif %}
+    {% else %}
+        <p>You must be logged in to add a comment.</p>
+    {% endif %}
+{% endblock %}
